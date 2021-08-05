@@ -1,7 +1,7 @@
 ========================================
 # Sticky Notes Web App using Material UI
 
-This web application was created with the educational purposes. It is a sticky notes application which is designed using the Material UI theme from Google.
+This web application was created with an educational purpose. It is a sticky notes application which is designed using the Material UI theme from Google.
 User can create a quick sticky note using the add note button. For now there is no Backend involved which means the notes just vanish when the page is reloaded.
 This project is free to fork and modify according to your will, and if you do, credit will be appreciated.
 

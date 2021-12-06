@@ -1,42 +1,27 @@
-import { React } from "react";
-import {
-    Card,
-    Grid,
-    CardContent,
-    Typography,
-    CardActions,
-    IconButton,
-} from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
+import React from "react";
+import { Card, CardContent, Typography } from "@mui/material";
 
-function Note(props) {
-    const noteStyle = {
-        backgroundColor: "#edc988",
-    };
-
-    function deleteNote(){
-        props.onDelete(props.id);
-    }
-
+const Note = (props) => {
     return (
-        <Grid item lg={2} md={4} sm={6} xs={12}>
-            <Card style={noteStyle}>
-                <CardContent>
-                    <Typography gutterBottom>{props.title}</Typography>
-                    <Typography variant="body2" component="p">
-                        {props.content}
-                    </Typography>
-                </CardContent>
-                <CardActions
-                    style={{ display: "flex", justifyContent: "flex-end" }}
+        <Card>
+            <CardContent sx={{ bgcolor: props.color }}>
+                <Typography
+                    variant="h5"
+                    component="h2"
+                    sx={{ fontFamily: "'Fuzzy Bubbles', cursive" }}
+                    gutterBottom
                 >
-                    <IconButton onClick={deleteNote}>
-                        <Delete id="delete-button" color="disabled"/>
-                    </IconButton>
-                </CardActions>
-            </Card>
-        </Grid>
+                    {props.title}
+                </Typography>
+                <Typography
+                    variant="body1"
+                    sx={{ fontFamily: "'Fuzzy Bubbles', cursive" }}
+                >
+                    This is a note. This is a note. This is a note.
+                </Typography>
+            </CardContent>
+        </Card>
     );
-}
+};
 
 export default Note;

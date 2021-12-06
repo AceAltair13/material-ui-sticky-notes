@@ -1,9 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
-import Footer from "./components/Footer";
+import App from "./App";
 
-ReactDOM.render(
-    [<App key="0" />, <Footer key="1" />],
-    document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));

@@ -1,18 +1,18 @@
-import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { Note } from "@material-ui/icons";
+import { AppBar, Toolbar, Typography } from "@mui/material";
+import StickyNote2Icon from "@mui/icons-material/StickyNote2";
 import React from "react";
 
-function Navbar() {
+const Navbar = () => {
     return (
-        <div>
-            <AppBar position="static" style={{ backgroundColor: "#132743" }}>
-                <Toolbar>
-                    <Note style={{transform: "rotate(-90deg)", color: "#d7385e"}}/>
-                    <Typography variant="h6" style={{marginLeft: "4px"}}>Sticky Notes</Typography>
-                </Toolbar>
-            </AppBar>
-        </div>
+        <AppBar position="sticky" color="secondary">
+            <Toolbar>
+                <Typography variant="h6" sx={{ flexGrow: 1 }}>
+                    <StickyNote2Icon sx={{mb: "-5px", mr: 1}}/>
+                    Sticky Notes
+                </Typography>
+            </Toolbar>
+        </AppBar>
     );
-}
+};
 
 export default Navbar;

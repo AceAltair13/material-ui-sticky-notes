@@ -4,7 +4,7 @@ import React from "react";
 
 const Navbar = () => {
     return (
-        <AppBar position="sticky" color="secondary">
+        <AppBar position="fixed" color="secondary">
             <Toolbar>
                 <Typography variant="h6" sx={{ flexGrow: 1 }}>
                     <StickyNote2Icon sx={{mb: "-5px", mr: 1}}/>

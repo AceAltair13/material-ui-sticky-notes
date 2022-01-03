@@ -1,7 +1,19 @@
 import React from "react";
-import { Card, CardContent, Typography } from "@mui/material";
+import {
+    Card,
+    CardActions,
+    CardContent,
+    IconButton,
+    Typography,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Box } from "@mui/system";
+import { useDispatch } from "react-redux";
+import { openDeleteDialog } from "../Features/rootSlice";
 
 const Note = (props) => {
+    const dispatch = useDispatch();
+
     return (
         <Card>
             <CardContent sx={{ bgcolor: props.color }}>
@@ -17,9 +29,19 @@ const Note = (props) => {
                     variant="body1"
                     sx={{ fontFamily: "'Fuzzy Bubbles', cursive" }}
                 >
-                    This is a note. This is a note. This is a note.
+                    {props.content}
                 </Typography>
             </CardContent>
+            <CardActions sx={{ bgcolor: props.color }}>
+                <Box flexGrow={1} />
+                <IconButton
+                    onClick={() => {
+                        dispatch(openDeleteDialog(props.id));
+                    }}
+                >
+                    <DeleteIcon />
+                </IconButton>
+            </CardActions>
         </Card>
     );
 };

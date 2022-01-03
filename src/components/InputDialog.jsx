@@ -13,9 +13,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addNote, closeNewNoteDialog } from "../Features/rootSlice";
+import { useSnackbar } from "notistack";
 
 const InputDialog = () => {
     const dispatch = useDispatch();
+    const { enqueueSnackbar } = useSnackbar();
     const { color, newNoteDialogOpen } = useSelector((state) => state);
     const {
         register,
@@ -40,6 +42,9 @@ const InputDialog = () => {
     const onSubmit = (data) => {
         console.log({ ...data, color });
         dispatch(addNote({ ...data, color, id: Date.now() }));
+        enqueueSnackbar("Note added successfully", {
+            variant: "success",
+        });
     };
 
     return (

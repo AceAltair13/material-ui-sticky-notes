@@ -4,6 +4,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 import rootReducer from "./Features/rootSlice";
 import { configureStore } from "@reduxjs/toolkit";
+import { SnackbarProvider } from "notistack";
 
 const store = configureStore({
     reducer: rootReducer,
@@ -11,7 +12,9 @@ const store = configureStore({
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <SnackbarProvider>
+            <App />
+        </SnackbarProvider>
     </Provider>,
     document.getElementById("root")
 );

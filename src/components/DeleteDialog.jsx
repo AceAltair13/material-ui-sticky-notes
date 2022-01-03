@@ -9,10 +9,12 @@ import {
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { closeDeleteDialog, removeNote } from "../Features/rootSlice";
+import { useSnackbar } from "notistack";
 
 const DeleteDialog = () => {
     const dispatch = useDispatch();
     const { deleteDialogOpen } = useSelector((state) => state);
+    const { enqueueSnackbar } = useSnackbar();
 
     return (
         <Dialog
@@ -28,7 +30,16 @@ const DeleteDialog = () => {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => dispatch(removeNote())}>Yes</Button>
+                <Button
+                    onClick={() => {
+                        dispatch(removeNote());
+                        enqueueSnackbar("Note deleted successfully", {
+                            variant: "success",
+                        });
+                    }}
+                >
+                    Yes
+                </Button>
                 <Button onClick={() => dispatch(closeDeleteDialog())}>
                     No
                 </Button>

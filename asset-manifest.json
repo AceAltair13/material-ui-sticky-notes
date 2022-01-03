@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/material-ui-sticky-notes/static/js/main.709f1c1f.chunk.js",
+    "main.js.map": "/material-ui-sticky-notes/static/js/main.709f1c1f.chunk.js.map",
+    "runtime-main.js": "/material-ui-sticky-notes/static/js/runtime-main.3b83668a.js",
+    "runtime-main.js.map": "/material-ui-sticky-notes/static/js/runtime-main.3b83668a.js.map",
+    "static/js/2.672b4ddd.chunk.js": "/material-ui-sticky-notes/static/js/2.672b4ddd.chunk.js",
+    "static/js/2.672b4ddd.chunk.js.map": "/material-ui-sticky-notes/static/js/2.672b4ddd.chunk.js.map",
+    "index.html": "/material-ui-sticky-notes/index.html",
+    "static/js/2.672b4ddd.chunk.js.LICENSE.txt": "/material-ui-sticky-notes/static/js/2.672b4ddd.chunk.js.LICENSE.txt",
+    "static/media/empty.0239137b.svg": "/material-ui-sticky-notes/static/media/empty.0239137b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3b83668a.js",
+    "static/js/2.672b4ddd.chunk.js",
+    "static/js/main.709f1c1f.chunk.js"
+  ]
+}

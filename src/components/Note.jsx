@@ -1,42 +1,49 @@
-import { React } from "react";
+import React from "react";
 import {
     Card,
-    Grid,
-    CardContent,
-    Typography,
     CardActions,
+    CardContent,
     IconButton,
-} from "@material-ui/core";
-import { Delete } from "@material-ui/icons";
+    Typography,
+} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { Box } from "@mui/system";
+import { useDispatch } from "react-redux";
+import { openDeleteDialog } from "../Features/rootSlice";
 
-function Note(props) {
-    const noteStyle = {
-        backgroundColor: "#edc988",
-    };
-
-    function deleteNote(){
-        props.onDelete(props.id);
-    }
+const Note = (props) => {
+    const dispatch = useDispatch();
 
     return (
-        <Grid item lg={2} md={4} sm={6} xs={12}>
-            <Card style={noteStyle}>
-                <CardContent>
-                    <Typography gutterBottom>{props.title}</Typography>
-                    <Typography variant="body2" component="p">
-                        {props.content}
-                    </Typography>
-                </CardContent>
-                <CardActions
-                    style={{ display: "flex", justifyContent: "flex-end" }}
+        <Card>
+            <CardContent sx={{ bgcolor: props.color }}>
+                <Typography
+                    variant="h5"
+                    component="h2"
+                    sx={{ fontFamily: "'Fuzzy Bubbles', cursive" }}
+                    gutterBottom
                 >
-                    <IconButton onClick={deleteNote}>
-                        <Delete id="delete-button" color="disabled"/>
-                    </IconButton>
-                </CardActions>
-            </Card>
-        </Grid>
+                    {props.title}
+                </Typography>
+                <Typography
+                    variant="body1"
+                    sx={{ fontFamily: "'Fuzzy Bubbles', cursive" }}
+                >
+                    {props.content}
+                </Typography>
+            </CardContent>
+            <CardActions sx={{ bgcolor: props.color }}>
+                <Box flexGrow={1} />
+                <IconButton
+                    onClick={() => {
+                        dispatch(openDeleteDialog(props.id));
+                    }}
+                >
+                    <DeleteIcon />
+                </IconButton>
+            </CardActions>
+        </Card>
     );
-}
+};
 
 export default Note;

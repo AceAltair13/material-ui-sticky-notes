@@ -1,9 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
-import Footer from "./components/Footer";
+import App from "./App";
+import { Provider } from "react-redux";
+import rootReducer from "./Features/rootSlice";
+import { configureStore } from "@reduxjs/toolkit";
+import { SnackbarProvider } from "notistack";
+
+const store = configureStore({
+    reducer: rootReducer,
+});
 
 ReactDOM.render(
-    [<App key="0" />, <Footer key="1" />],
+    <Provider store={store}>
+        <SnackbarProvider>
+            <App />
+        </SnackbarProvider>
+    </Provider>,
     document.getElementById("root")
 );
